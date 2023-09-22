@@ -2,15 +2,19 @@
 <html>
 <head>
 <style>
-  .box {
+  div {
     width: 200px;
-    height: auto; /* Change height to 'auto' to allow content to expand */
+    height: auto;
     border: 1px solid #ccc;
     margin-bottom: 20px;
-    /* overflow: hidden; Remove this line to allow content to overflow */
+  }
+  .visible {
+    white-space: nowrap;
+   
+    overflow: visible;
   }
 
-  .ellipsis {
+  .hidden {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -20,29 +24,24 @@
     white-space: normal;
   }
 
-  .vertical-wrap {
-    white-space: nowrap; /* Prevent normal text from wrapping */
-  }
-
-  .vertical-wrap span {
-    white-space: normal; /* Allow the span content to wrap */
-    display: inline-block; /* Ensure the span content wraps vertically */
-    writing-mode: vertical-rl; /* Set vertical writing mode */
+  .vertical-wrap  {
+    white-space: normal; 
+    writing-mode: vertical-rl; 
   }
 </style>
 </head>
 <body>
 
-<div class="box">
-  This is some long text that will not fit in the box and should overflow outside the box.
+<div class="box visible">
+  This is some long text that will not fit in the box
 </div>
 
-<div class="box ellipsis">
+<div class="box hidden">
   This is some long text that will not fit in the box.
 </div>
 
 <div class="box wrap">
-  Some text with a <span class="vertical-wrap">vertical-rl</span> writing-mode
+  Some text with a span element with a <span class="vertical-wrap">vertical-rl</span> writing-mode.
 </div>
 
 </body>
