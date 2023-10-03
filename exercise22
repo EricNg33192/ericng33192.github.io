@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+	.s1{
+    	width: 100px;
+ 		height: 100px;
+        background-color: rgb(255,111,162);
+  	    transition:  2s;
+        margin-bottom: 25px;
+	}
+    .s1:hover{
+    	width: 700px;
+    }
+	.s2{
+    	width: 100px;
+ 		height: 100px;
+        background-color: rgb(255,111,162);
+  	    transition:  2s;
+	}
+    .s2:hover{
+    	width: 150px;
+        height: 150px;
+    }
+</style>
+</head>
+<body>
+
+
+<div class="s1">1</div>
+<div class="s2">2</div>
+<div></div>
+
+</body>
+</html>
+
+
