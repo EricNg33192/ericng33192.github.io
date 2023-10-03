@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container_1 {
+        background-color: rgb(218, 245, 84);
+        width: 100%;
+        height: 200px;
+        margin-bottom: 1%;
+        border-radius: 5px;
+      }
+      .container_2 {
+        margin-bottom: 1%;
+        display: flex;
+        gap: 1%;
+      }
+      .container_2child {
+        background-color: rgb(113, 245, 247);
+        width: 100%;
+        height: 300px;
+        border-radius: 5px;
+      }
+      .container_3 {
+        display: flex;
+        width: 100%;
+        gap: 1%;
+      }
+      .container_3child {
+        background-color: rgb(237, 242, 242);
+        width: 100%;
+        height: 150px;
+        border-radius: 5px;
+      }
+      @media screen and (max-width: 480px) {
+        .container_1 {
+          height: 110px;
+          margin-bottom: 2%;
+        }
+        .container_2 {
+          display: block;
+          margin-bottom: 2%;
+        }
+        .container_2child {
+          margin-bottom: 2%;
+          height: 100px;
+        }
+        .container_3 {
+          flex-wrap: wrap;
+          gap: 2%;
+        }
+        .container_3child {
+          flex: 1 0 49%;
+          margin-bottom: 2%;
+        }
+      }
+    </style>
+</head>
+<body>
+    <div class="container_1"></div>
+    
+    <div class="container_2">
+      <div class="container_2child"></div>
+      <div class="container_2child"></div>
+      <div class="container_2child"></div>
+    </div>
+    
+    <div class="container_3">
+      <div class="container_3child"></div>
+      <div class="container_3child"></div>
+      <div class="container_3child"></div>
+      <div class="container_3child"></div>
+    </div>
+</body>
+</html>
