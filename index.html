@@ -2,45 +2,24 @@
 <html>
 <head>
 <style>
-  div {
-    width: 200px;
-    height: auto;
-    border: 1px solid #ccc;
-    margin-bottom: 20px;
-  }
-  .visible {
-    white-space: nowrap;
-    overflow: visible;
-  }
+#grad1 {
+  height: 100px;
+  background-color: white;
+  background-image: linear-gradient(red, yellow, green);
+}
 
-  .hidden {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
-
-  .wrap {
-    white-space: normal;
-  }
-
-  .vertical-wrap  {
-    white-space: normal; 
-    writing-mode: vertical-rl; 
-  }
+.text-container {
+  font-family: Arial;
+  font-size: 40px;
+  color: blue;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+}
 </style>
 </head>
 <body>
 
-<div class="box visible">
-  This is some long text that will not fit in the box
-</div>
-
-<div class="box hidden">
-  This is some long text that will not fit in the box.
-</div>
-
-<div class="box wrap">
-  Some text with a span element with a <span class="vertical-wrap">vertical-rl</span> writing-mode.
+<div id="grad1">
+  <div class="text-container">Border around text!</div>
 </div>
 
 </body>
