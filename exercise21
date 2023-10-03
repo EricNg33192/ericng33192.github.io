@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#grad1 {
+  height: 100px;
+  background-color: white;
+  background-image: linear-gradient(red, yellow, green);
+}
+
+.text-container {
+  font-family: Arial;
+  font-size: 40px;
+  color: blue;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+}
+</style>
+</head>
+<body>
+
+<div id="grad1">
+  <div class="text-container">Border around text!</div>
+</div>
+
+</body>
+</html>
