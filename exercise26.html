@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Interaction</title>
+    <style>
+        #box {
+            border: 1px solid #ccc;
+            padding: 20px;
+            display: inline-block;
+        }
+
+        #interactive-button {
+            padding: 10px 20px;
+            background-color: #c6c9cc;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        #text-content {
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <p id="text-content">Hello</p>
+        <button id="interactive-button" onmouseover="changeText()" onclick="changeTextOnClick()">Button</button>
+    </div>
+    
+    <script>
+        function changeText() {
+            var text = document.getElementById("text-content");
+            text.textContent = " Hello";
+            text.style.color = "pink";
+        }
+
+        function changeTextOnClick() {
+            var text = document.getElementById("text-content");
+            text.textContent = " Mouse Click";
+        }
+    </script>
+</body>
+</html>
