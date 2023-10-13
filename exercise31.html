@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<p>Please input a number between 150 and 300:</p>
+
+<input id="numb">
+
+<button type="button" onclick="myFunction()">Submit</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  let x = document.getElementById("numb").value;
+  let text;
+  if (isNaN(x) || x < 150 ) {
+    text = "Value too small";
+  } else if (x > 300){
+  	text = "Value too large";
+  	} 
+  	else {
+    	text = "Input OK";
+  	}
+  document.getElementById("demo").innerHTML = text;
+}
+</script>
+
+</body>
+</html> 
