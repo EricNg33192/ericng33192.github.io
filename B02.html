@@ -1,0 +1,892 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      * {
+          margin: 0;
+          padding: 0;
+          font-family: 'Montserrat', sans-serif;
+      }
+        body {
+            background-image: url("img/background.jpg");
+            background-size: cover;
+            background-color: white;
+            background-repeat: no-repeat    ;
+            background-blend-mode: normal;
+            display: flex;
+            justify-content: space-between;
+            align-items:center;
+            width: 100%;
+            min-height: 100vh;
+            backdrop-filter: blur(4px);
+            flex-direction: column;
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+            margin-bottom: 12px;
+            border: #e5e7eb solid 1px;
+            border-radius: 12px;
+            opacity: 0.8;
+            height: fit-content;
+            padding-bottom: 12px;
+            background-color: #314858;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items:flex-start;
+            height: 60px;
+            color: #94dce6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a:link {
+            color: #94dce6;
+        }
+
+        a:visited {
+            color: #c5f5fb;
+        }
+
+        a:hover {
+            color: yellow;
+        }
+
+        .language {
+            width: 40%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .language > div {
+            width: 25%;
+            height: 100%;
+            display: flex;
+            padding: 0;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-right: #e5e7eb solid 1px;
+            border-bottom: #e5e7eb solid 1px;  
+            background-color: #314858;
+        }
+
+        .language div:hover, .ultilities div:hover, .sidebar > div:hover {
+            background: radial-gradient(white 10%, white 0%, gray 70%);
+            color: yellow;
+        }
+
+        .language-mobile {
+            display: none;
+        }
+
+        #language-4 {
+            border-radius: 0 0 12px 0;
+        }
+
+        .home-page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            padding: 0 12px;
+            background-color: #8dddea;
+            border-radius: 0 0 12px 12px;
+        }
+
+        .home-page a {
+            text-decoration: none;
+            border-bottom: black 0.5px solid;
+            color: #314858
+        }
+
+        .ultilities {
+            width: 40%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .ultilities > div {
+          width: 33%;
+          display: flex;
+          padding: 4;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+          border-left: #e5e7eb solid 1px;
+          border-bottom: #e5e7eb solid 1px;
+          background-color: #314858;
+        }
+        .ultilities a{
+          display: flex;
+          flex-direction: space-between;
+          align-items: center;
+          font-size: 16px;
+        }
+        .ultilities img{
+          max-width: 100%;
+          margin-left: 10px;
+          margin-top: 10px;
+        }
+
+        .ultilities {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #ultilities-1 {
+            border-radius: 0 0px 0 12px ;
+          }
+
+        .share-button {
+            display: none;
+        }
+
+        .content {
+            display: flex;
+            width: 100%;
+            flex-wrap: nowrap;
+            padding-top: 12px;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-basis: 1/10;
+            flex-direction: column;
+            color: #94dce6;
+            font-weight: medium;
+            margin-right: 12px;
+            margin-top: 12px;
+        }
+
+        .sidebar > div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-right: #e5e7eb solid 1px;
+            border-bottom: #e5e7eb solid 1px;  
+            background-color: #314858;
+            padding: 4px;
+        }
+
+        .sidebar img {
+            width: 50px;
+            height: 100%;
+        }
+
+        #category-1 {
+            border-top: #e5e7eb solid 1px;
+            border-radius: 0 12px 0 0 ;
+        }
+
+        #category-6 {
+            border-radius: 0 0 12px 0;
+        }
+
+        .main {
+            display: flex;
+            width: 100%;
+            flex-basis: 9/10;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .product {
+            width: 220px;
+            height: 250px;
+            background-color: white;
+            position: relative;
+            border: #e5e7eb solid 1px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: #1092b2 solid 4px;
+        }
+
+        .product img {
+            width: 100%;
+            height: 50%;
+            object-fit: contain;
+        }
+
+        .product:hover {
+            transition: all .2s ease-in-out;
+            transform: scale(1.1);
+        }
+
+        .product-title {
+            background-color: rgb(54 107 126);
+            color: #96dbe5;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .sales-percent {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: red;
+            color: yellow;
+            padding: 4px;
+            border-radius: 0 12px 0 12px;
+            z-index: 3;
+            font-weight: bold;
+        }
+
+        .footer-product {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4px;
+        }
+
+        .seller {
+            position: absolute;
+            bottom: 90px;
+            right: 0;
+        }
+        .seller span {
+            color: red;
+            font-weight: bold;
+        }
+
+        .price {
+            background-color: red;
+            color: white;
+            padding: 4px;
+            border-radius: 0 12px 0 12px;
+            font-weight: bold;
+        }
+
+        .footer {
+            display: flex;
+            width: 90%;
+            border: #e5e7eb solid 1px;
+            border-bottom: none;
+            border-radius: 12px;
+            opacity: 0.8;
+            height: fit-content;
+            margin-top: 12px;
+            background-color: #314858;
+            color: #94dce6;
+        }
+
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            min-width: fit-content ;
+            border-right: #e5e7eb solid 1px;
+        }
+
+        .info > div:first-child {
+            text-align: center;
+            line-height: 120px;
+            vertical-align: middle;
+            color: #b4aa9c;
+            font-weight: bold;
+        }
+
+        .contact {
+            width: 100%;
+            height: fit-content;
+            flex-basis: 1/6;
+            display: flex;
+            justify-content: space-between;
+            padding-top: 4px;
+            padding-bottom: 4px;
+            align-items: center;
+            border-top: gray solid 0.5px;
+            border-bottom: gray solid 0.5px;
+        }
+
+        .contact > div {
+            border-left: #1092b2 solid 0.5px;
+            padding: 8px;
+            font-size: 12px;
+            justify-content: center;
+            width: 25%;
+            display: flex;
+        }
+
+
+        .other-link {
+            display: flex;
+            flex-direction: column;
+            justify-content:flex-start;
+            align-items:flex-start;
+            padding: 24px;
+            width: 80%;
+            height: 240px;
+            position: relative;
+            max-width: fit-content;
+        }
+
+        .other-link > div:nth-child(2) {
+            text-decoration: underline;
+            text-decoration-style: double;
+        }
+
+        #name-transparent {
+            position: absolute;
+            font-size: 120px;
+            top: 20%;
+            left: 10%;
+            opacity: 0.2;
+        }
+
+        #links {
+            display: grid;
+            gap: 8px;
+            grid-template-columns: repeat(4, 1fr);
+            margin: 12px;
+            padding: 12px;
+        }
+
+        @media screen and (max-width: 600px){
+            .header {
+                flex-wrap: wrap;
+                margin-bottom: 60px;
+            }
+
+            .language {
+                display: none;
+            }
+
+            .language-mobile {
+                display: block;
+            }
+
+            .ultilities {
+                width: 100vw;
+                gap: 8px;
+                border: none;
+                margin-top: 12px;
+            }
+
+            .ultilities > div {
+                border: #e5e7eb solid 1px;
+                border-radius: 12px;
+            }
+
+            #ultilities-1 {
+                border-radius: 12px;
+            }
+
+            .share-button {
+                display: block;
+                margin: 8px;
+                padding: 8px;
+                font-weight: bold;
+            }
+
+            .sidebar {
+                display: none;
+            }
+
+            .container {
+                width: 100%;
+                border: none;
+                margin-bottom: 0;
+                border-radius: 0;
+            }
+
+            .main {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .footer {
+                flex-direction: column;
+                width: 100vw;
+                border: none;
+                margin-top: 0;
+                border-radius: 0;
+            }
+
+            .info:first-child{
+                border-bottom: black solid 0.5px;
+                border-top: black solid 0.5px;
+                border-right: none;
+            }
+
+            #name-transparent {
+                font-size: 60px;
+            }
+
+            .info {
+                order: 2;
+            }
+
+            #links {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="language">
+                <div id="language-1"><img src="img/english.png"style="height: 20px;" style="height: 20px;" alt="">
+                    <a href="#">English</a>
+                </div>
+                <div id="language-2"><img src="img/srpski.png" style="height: 20px;" style="height: 20px;" alt="">
+                    <a href="#">Srpski</a>
+                </div>
+                <div id="language-3"><img src="img/hrvatski.png" style="height: 20px;" style="height: 20px;" alt="">
+                    <a href="#">Hrvatski</a>
+                </div>
+                <div id="language-4"><img src="img/deutsch.png" style="height: 20px;" style="height: 20px;" alt="">
+                    <a href="#">Deutsch</a>
+                </div>
+            </div>
+            <div class="language-mobile">
+                <div id="language-1"><img src="img/english.png" style="height: 20px;" style="height: 20px;" alt="">
+                    <a href="#">English</a>
+                </div>
+            </div>
+            <div class="home-page"><a href="#"><em>AKCIJA.de</em></a></div>
+            <div class="share-button">Share</div>
+            <div class="ultilities">
+                <div id="ultilities-1"><img src="img/Biggest.png" alt=""> <a href="#"> Biggest saving first</a> </div>
+                <div id="ultilities-2"><img src="img/Price.png" alt=""> <a href="#">Price: Low to High</a> </div>
+                <div id="ultilities-3" ><img src="img/Lowest.png"  alt=""> <a href="#">Lowest installment</a> </div>
+            </div>
+
+        </div>
+        <div class="content">
+            <div class="sidebar">
+                <div id="category-1">
+                    <img src="img/TV.png" alt="">
+                    <div>TV & Audio</div>
+                </div>
+                <div id="category-2">
+                    <img src="img/computer.png" alt="">
+                    <div>Computers</div>
+                </div>
+                <div id="category-3">
+                    <img src="img/large.png" alt="">
+                    <div>Large Appliances</div>
+                </div>
+                <div id="category-4">
+                    <img src="img/kitchen.png" alt="">
+                    <div>Small Kitchen Appliances</div>
+                </div>
+                <div id="category-5">
+                    <img src="img/small.png" alt="">
+                    <div>Small Home Appliances</div>
+                </div>
+                <div id="category-6">
+                    <img src="img/phone.png" style=" width: 20px;"alt="">
+                    <div>Phones</div>
+                </div>
+            </div>
+            <div class="main">
+              <div class="product">
+                  <div class="product-title">
+                      MSCC: <del>100$</del>
+                  </div>
+                  <img src="img/1.png" alt="">
+                  <h3>Product 1</h3>
+                  <div>Description of Product 1</div>
+                  <div class="seller">
+                      <div>Seller</div>
+                      <span>OTTO</span>
+                  </div>
+                  <div class="footer-product">
+                      <div class="price">$399</div>
+                      <div><u>EMI</u></div>
+                  </div>
+                  <div class="sales-percent">-70%</div>
+              </div>
+              <div class="product">
+                  <div class="product-title">
+                      MSCC: <del>100$</del>
+                  </div>
+                  <img src="img/2.png" alt="">
+                  <h3>Product 1</h3>
+                  <div>Description of Product 1</div>
+                  <div class="seller">
+                      <div>Seller</div>
+                      <span>OTTO</span>
+                  </div>
+                  <div class="footer-product">
+                      <div class="price">$399</div>
+                      <div><u>EMI</u></div>
+                  </div>
+                  <div class="sales-percent">-70%</div>
+              </div>
+              <div class="product">
+                  <div class="product-title">
+                      MSCC: <del>100$</del>
+                  </div>
+                  <img src="img/3.png" alt="">
+                  <h3>Product 1</h3>
+                  <div>Description of Product 1</div>
+                  <div class="seller">
+                      <div>Seller</div>
+                      <span>OTTO</span>
+                  </div>
+                  <div class="footer-product">
+                      <div class="price">$399</div>
+                      <div><u>EMI</u></div>
+                  </div>
+                  <div class="sales-percent">-70%</div>
+              </div>
+              <div class="product">
+                  <div class="product-title">
+                      MSCC: <del>100$</del>
+                  </div>
+                  <img src="img/4.png" alt="">
+                  <h3>Product 1</h3>
+                  <div>Description of Product 1</div>
+                  <div class="seller">
+                      <div>Seller</div>
+                      <span>OTTO</span>
+                  </div>
+                  <div class="footer-product">
+                      <div class="price">$399</div>
+                      <div><u>EMI</u></div>
+                  </div>
+                  <div class="sales-percent">-70%</div>
+              </div>
+              <div class="product">
+                  <div class="product-title">
+                      MSCC: <del>100$</del>
+                  </div>
+                  <img src="img/5.png" alt="">
+                  <h3>Product 1</h3>
+                  <div>Description of Product 1</div>
+                  <div class="seller">
+                      <div>Seller</div>
+                      <span>OTTO</span>
+                  </div>
+                  <div class="footer-product">
+                      <div class="price">$399</div>
+                      <div><u>EMI</u></div>
+                  </div>
+                  <div class="sales-percent">-70%</div>
+              </div>
+              <div class="product">
+                  <div class="product-title">
+                      MSCC: <del>100$</del>
+                  </div>
+                  <img src="img/6.png" alt="">
+                  <h3>Product 1</h3>
+                  <div>Description of Product 1</div>
+                  <div class="seller">
+                      <div>Seller</div>
+                      <span>OTTO</span>
+                  </div>
+                  <div class="footer-product">
+                      <div class="price">$399</div>
+                      <div><u>EMI</u></div>
+                  </div>
+                  <div class="sales-percent">-70%</div>
+              </div>
+              <div class="product">
+                  <div class="product-title">
+                      MSCC: <del>100$</del>
+                  </div>
+                  <img src="img/7.png" alt="">
+                  <h3>Product 1</h3>
+                  <div>Description of Product 1</div>
+                  <div class="seller">
+                      <div>Seller</div>
+                      <span>OTTO</span>
+                  </div>
+                  <div class="footer-product">
+                      <div class="price">$399</div>
+                      <div><u>EMI</u></div>
+                  </div>
+                  <div class="sales-percent">-70%</div>
+              </div>
+              <div class="product">
+                  <div class="product-title">
+                      MSCC: <del>100$</del>
+                  </div>
+                  <img src="img/8.png" alt="">
+                  <h3>Product 1</h3>
+                  <div>Description of Product 1</div>
+                  <div class="seller">
+                      <div>Seller</div>
+                      <span>OTTO</span>
+                  </div>
+                  <div class="footer-product">
+                      <div class="price">$399</div>
+                      <div><u>EMI</u></div>
+                  </div>
+                  <div class="sales-percent">-70%</div>
+              </div>
+              <div class="product">
+                  <div class="product-title">
+                      MSCC: <del>100$</del>
+                  </div>
+                  <img src="img/9.png" alt="">
+                  <h3>Product 1</h3>
+                  <div>Description of Product 1</div>
+                  <div class="seller">
+                      <div>Seller</div>
+                      <span>OTTO</span>
+                  </div>
+                  <div class="footer-product">
+                      <div class="price">$399</div>
+                      <div><u>EMI</u></div>
+                  </div>
+                  <div class="sales-percent">-70%</div>
+              </div>
+              <div class="product">
+                  <div class="product-title">
+                      MSCC: <del>100$</del>
+                  </div>
+                  <img src="img/10.png" alt="">
+                  <h3>Product 1</h3>
+                  <div>Description of Product 1</div>
+                  <div class="seller">
+                      <div>Seller</div>
+                      <span>OTTO</span>
+                  </div>
+                  <div class="footer-product">
+                      <div class="price">$399</div>
+                      <div><u>EMI</u></div>
+                  </div>
+                  <div class="sales-percent">-70%</div>
+              </div>
+              <div class="product">
+                <div class="product-title">
+                    MSCC: <del>100$</del>
+                </div>
+                <img src="img/11.png" alt="">
+                <h3>Product 1</h3>
+                <div>Description of Product 1</div>
+                <div class="seller">
+                    <div>Seller</div>
+                    <span>OTTO</span>
+                </div>
+                <div class="footer-product">
+                    <div class="price">$399</div>
+                    <div><u>EMI</u></div>
+                </div>
+                <div class="sales-percent">-70%</div>
+            </div>
+            <div class="product">
+                  <div class="product-title">
+                      MSCC: <del>100$</del>
+                  </div>
+                  <img src="img/12.png" alt="">
+                  <h3>Product 1</h3>
+                  <div>Description of Product 1</div>
+                  <div class="seller">
+                      <div>Seller</div>
+                      <span>OTTO</span>
+                  </div>
+                  <div class="footer-product">
+                      <div class="price">$399</div>
+                      <div><u>EMI</u></div>
+                  </div>
+                  <div class="sales-percent">-70%</div>
+              </div>
+              <div class="product">
+                  <div class="product-title">
+                      MSCC: <del>100$</del>
+                  </div>
+                  <img src="img/13.png" alt="">
+                  <h3>Product 1</h3>
+                  <div>Description of Product 1</div>
+                  <div class="seller">
+                      <div>Seller</div>
+                      <span>OTTO</span>
+                  </div>
+                  <div class="footer-product">
+                      <div class="price">$399</div>
+                      <div><u>EMI</u></div>
+                  </div>
+                  <div class="sales-percent">-70%</div>
+              </div>
+              <div class="product">
+                  <div class="product-title">
+                      MSCC: <del>100$</del>
+                  </div>
+                  <img src="img/14.png" alt="">
+                  <h3>Product 1</h3>
+                  <div>Description of Product 1</div>
+                  <div class="seller">
+                      <div>Seller</div>
+                      <span>OTTO</span>
+                  </div>
+                  <div class="footer-product">
+                      <div class="price">$399</div>
+                      <div><u>EMI</u></div>
+                  </div>
+                  <div class="sales-percent">-70%</div>
+              </div>
+              <div class="product">
+                  <div class="product-title">
+                      MSCC: <del>100$</del>
+                  </div>
+                  <img src="img/15.png" alt="">
+                  <h3>Product 1</h3>
+                  <div>Description of Product 1</div>
+                  <div class="seller">
+                      <div>Seller</div>
+                      <span>OTTO</span>
+                  </div>
+                  <div class="footer-product">
+                      <div class="price">$399</div>
+                      <div><u>EMI</u></div>
+                  </div>
+                  <div class="sales-percent">-70%</div>
+              </div>
+              <div class="product">
+                  <div class="product-title">
+                      MSCC: <del>100$</del>
+                  </div>
+                  <img src="img/16.png" alt="">
+                  <h3>Product 1</h3>
+                  <div>Description of Product 1</div>
+                  <div class="seller">
+                      <div>Seller</div>
+                      <span>OTTO</span>
+                  </div>
+                  <div class="footer-product">
+                      <div class="price">$399</div>
+                      <div><u>EMI</u></div>
+                  </div>
+                  <div class="sales-percent">-70%</div>
+              </div>
+              <div class="product">
+                  <div class="product-title">
+                      MSCC: <del>100$</del>
+                  </div>
+                  <img src="img/17.png" alt="">
+                  <h3>Product 1</h3>
+                  <div>Description of Product 1</div>
+                  <div class="seller">
+                      <div>Seller</div>
+                      <span>OTTO</span>
+                  </div>
+                  <div class="footer-product">
+                      <div class="price">$399</div>
+                      <div><u>EMI</u></div>
+                  </div>
+                  <div class="sales-percent">-70%</div>
+              </div>
+              <div class="product">
+                  <div class="product-title">
+                      MSCC: <del>100$</del>
+                  </div>
+                  <img src="img/18.png" alt="">
+                  <h3>Product 1</h3>
+                  <div>Description of Product 1</div>
+                  <div class="seller">
+                      <div>Seller</div>
+                      <span>OTTO</span>
+                  </div>
+                  <div class="footer-product">
+                      <div class="price">$399</div>
+                      <div><u>EMI</u></div>
+                  </div>
+                  <div class="sales-percent">-70%</div>
+              </div>
+              <div class="product">
+                  <div class="product-title">
+                      MSCC: <del>100$</del>
+                  </div>
+                  <img src="img/19.png" alt="">
+                  <h3>Product 1</h3>
+                  <div>Description of Product 1</div>
+                  <div class="seller">
+                      <div>Seller</div>
+                      <span>OTTO</span>
+                  </div>
+                  <div class="footer-product">
+                      <div class="price">$399</div>
+                      <div><u>EMI</u></div>
+                  </div>
+                  <div class="sales-percent">-70%</div>
+              </div>
+              <div class="product">
+                  <div class="product-title">
+                      MSCC: <del>100$</del>
+                  </div>
+                  <img src="img/20.png" alt="">
+                  <h3>Product 1</h3>
+                  <div>Description of Product 1</div>
+                  <div class="seller">
+                      <div>Seller</div>
+                      <span>OTTO</span>
+                  </div>
+                  <div class="footer-product">
+                      <div class="price">$399</div>
+                      <div><u>EMI</u></div>
+                  </div>
+                  <div class="sales-percent">-70%</div>
+              </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="footer">
+        <div class="info">
+            <div>This website does ot use cookies!</div>
+            <div class="contact">
+                <div><a href="#">About us</a></div>
+                <div><a href="#">Contact</a></div>
+                <div><a href="#">Datenschutz</a></div>
+                <div><a href="#">Impressum</a></div>
+            </div>
+            <div class="special-logo">
+                <img src="" alt="">
+                <img src="" alt="">
+                <img src="" alt="">
+                <div>Image by sofind on Freepik</div>
+            </div>
+        </div>
+        <div class="other-link">
+            <div id="name-transparent">AKCUJA.de</div>
+            <div>Product groups:</div>
+            <div id="links">
+                <div class="related-link"><a href="#">Televisions</a></div>
+                <div class="related-link"><a href="#">Headphones</a></div>
+                <div class="related-link"><a href="#">Coffe Machines</a></div>
+                <div class="related-link"><a href="#">Irons</a></div>
+                <div class="related-link"><a href="#">Laptop Computers</a></div>
+                <div class="related-link"><a href="#">Washing Machines</a></div>
+                <div class="related-link"><a href="#">Personal care</a></div>
+                <div class="related-link"><a href="#">Desktop Computers</a></div>
+                <div class="related-link"><a href="#">Grills</a></div>
+                <div class="related-link"><a href="#">Lighting</a></div>
+                <div class="related-link"><a href="#">Tablet</a></div>
+                <div class="related-link"><a href="#">Phones</a></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
