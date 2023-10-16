@@ -1,4 +1,3 @@
-// binary.js
 function add(a, b) {
   const binaryA = parseInt(a, 2);
   const binaryB = parseInt(b, 2);

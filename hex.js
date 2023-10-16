@@ -1,4 +1,3 @@
-// hex.js
 function add(a, b) {
   const hexA = parseInt(a, 16);
   const hexB = parseInt(b, 16);

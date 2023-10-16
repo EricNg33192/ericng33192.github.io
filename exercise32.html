@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Binary and Hexadecimal Addition</title>
+ <title>Binary and Hexadecimal Addition</title>
+ <script src="binary.js"></script>
+ <script src="hex.js"></script>
 </head>
 <body>
-  <script>
-    <script src="binary.js"></script>
-    <script src="hex.js"></script>
+ <script type="module">
     import { add as binaryAdd, isValid as binaryIsValid } from './binary.js';
     import { add as hexAdd, isValid as hexIsValid } from './hex.js';
 
@@ -39,6 +39,6 @@
     } else {
       alert('Invalid addition type.');
     }
-  </script>
+ </script>
 </body>
 </html>
