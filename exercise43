@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Planet Information</title>
+    <style>
+        .planet-info {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        .planet-image {
+            max-width: 100px;
+            max-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Planet Information</h1>
+    <div id="planets-info"></div>
+
+    <script>
+        // Function to fetch and display planet information
+        function fetchPlanetData() {
+            fetch("https://handlers.education.launchcode.org/static/planets.json")
+                .then(response => response.json())
+                .then(data => {
+                    const planetsInfo = document.getElementById("planets-info");
+                    data.forEach(planet => {
+                        const planetDiv = document.createElement("div");
+                        planetDiv.classList.add("planet-info");
+
+                        // Function to check if an image link is valid
+                        function imageExists(url, callback) {
+                            var img = new Image();
+                            img.onload = function () {
+                                callback(true);
+                            };
+                            img.onerror = function () {
+                                callback(false);
+                            };
+                            img.src = url;
+                        }
+
+                        // Set an array of alternative image URLs
+                        const alternativeImageURLs = [
+                            'https://upload.wikimedia.org/wikipedia/en/6/6d/Tatooine_%28fictional_desert_planet%29.jpg',
+                            'https://cdn.dribbble.com/users/1074128/screenshots/14029648/9b66d0fb-f5d0-43a6-9f60-64a64dea5c99_4x.jpeg',
+                            'https://static.wikia.nocookie.net/pern/images/3/36/Earth.jpg/revision/latest?cb=20181027151937',
+                        ];
+
+                        // Check if the planet's image link is valid, if not, use a random alternative image
+                        imageExists(planet.image, function (exists) {
+                            const imageURL = exists
+                                ? planet.image
+                                : alternativeImageURLs[Math.floor(Math.random() * alternativeImageURLs.length)];
+
+                            planetDiv.innerHTML = `
+                                <h2>${planet.name}</h2>
+                                <img class="planet-image" src="${imageURL}" alt="${planet.name} Image">
+                                <p>Diameter: ${planet.diameter}</p>
+                                <p>Star: ${planet.star}</p>
+                                <p>Distance: ${planet.distance}</p>
+                                <p>Moons: ${planet.moons}</p>
+                            `;
+                            planetsInfo.appendChild(planetDiv);
+                        });
+                    });
+                })
+                .catch(error => console.error("Error fetching data: ", error));
+        }
+
+        fetchPlanetData();
+    </script>
+</body>
+</html>
