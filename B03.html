@@ -79,10 +79,10 @@
             <h2>Change Timezone </h2>
             <select id="timezoneSelect">
               <option value="default">Pick a timezone</option>
-                <option value="America/New York">New York</option>
+                <option value="America/New_York">New York</option>
                 <option value="Europe/London">London</option>
                 <option value="Asia/Tokyo">Tokyo</option>
-                <option value="America/Los Angeles">Los Angeles</option>
+                <option value="America/Los_Angeles">Los Angeles</option>
                 <option value="Europe/Paris">Paris</option>
                 <option value="Asia/Dubai">Dubai</option>
                 <option value="America/Chicago">Chicago</option>
@@ -92,7 +92,7 @@
                 <option value="America/Toronto">Toronto</option>
                 <option value="Asia/Hong_Kong">Hong Kong</option>
                 <option value="Europe/Amsterdam">Amsterdam</option>
-                <option value="America/Mexico City">Mexico City</option>
+                <option value="America/Mexico_City">Mexico City</option>
                 <option value="Asia/Singapore">Singapore</option>
                 <option value="Europe/Madrid">Madrid</option>
                 <option value="America/Miami">Miami</option>
@@ -100,7 +100,7 @@
                 <option value="Europe/Rome">Rome</option>
                 <option value="Etc/UTC">Coordinated Universal Time (UTC)</option>
                 <option value="Asia/Taipei">Taipei</option>
-                <option value="Asia/Ho Chi Minh">Ho Chi Minh</option>
+                <option value="Asia/Ho_Chi_Minh">Ho Chi Minh</option>
                 <option value="local">Local Time</option>         
             </select>
             <button id="applyTimezoneButton">Apply</button>
@@ -126,6 +126,7 @@
             const selectedTimezone = timezoneSelect.value;
             updateTime(selectedTimezone);
         });
+        
 
     </script>
     <script>
