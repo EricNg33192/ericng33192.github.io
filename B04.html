@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        .edit-button:before {
+            content: 'Edit'; 
+        }
+        .delete-button:before {
+            content: 'Delete';
+        }
+    </style>
+</head>
+<body>
+    <div id="to-do-container">
+        <ul id="todo-list"></ul>
+    </div>
+    <form id="todo-form">
+        <input type="text" id="input-field" placeholder="Item Name">
+        <button type="button" onclick="addTodo()">Add To-Do</button>
+    </form>
+
+    <script>
+        let todoList = document.getElementById('todo-list');
+        let todoForm = document.getElementById('todo-form');
+        let inputField = document.getElementById('input-field');
+
+        // Function to create new list item
+        function addTodo() {
+            let li = document.createElement('li');
+            li.textContent = inputField.value;
+            addEditAndDeleteButtons(li); 
+            todoList.appendChild(li);
+            inputField.value = '';
+
+            updateLocalStorage();
+        }
+
+        // Function to add edit and delete buttons to a to-do item
+        function addEditAndDeleteButtons(li) {
+            let deleteBtn = document.createElement('button');
+            deleteBtn.innerHTML = '<span class="delete-button"></span>'; 
+            deleteBtn.addEventListener('click', function () {
+                todoList.removeChild(li);
+                updateLocalStorage();
+            });
+
+            let editBtn = document.createElement('button');
+            editBtn.innerHTML = '<span class="edit-button"></span>'; 
+            editBtn.addEventListener('click', function () {
+                let editInput = document.createElement('input');
+                editInput.type = 'text';
+                editInput.value = li.textContent;
+                li.textContent = '';
+                li.appendChild(editInput);
+
+                let confirmBtn = document.createElement('button');
+                confirmBtn.innerHTML = 'Confirm';
+                confirmBtn.addEventListener('click', function () {
+                    li.textContent = editInput.value;
+                    li.removeChild(editInput);
+                    li.removeChild(confirmBtn);
+                    li.appendChild(editBtn);
+                    li.appendChild(deleteBtn);
+                    updateLocalStorage();
+                });
+
+                li.appendChild(confirmBtn);
+                li.removeChild(editBtn);
+                li.removeChild(deleteBtn);
+            });
+
+            li.appendChild(editBtn);
+            li.appendChild(deleteBtn);
+        }
+
+        // Function to update local storage with the current to-do list
+        function updateLocalStorage() {
+            let todoItems = Array.from(todoList.children).map((li) => li.textContent);
+            localStorage.setItem('todoItems', JSON.stringify(todoItems));
+        }
+
+        // Function to load to-do items from local storage when the page loads
+        function loadFromLocalStorage() {
+            let storedItems = localStorage.getItem('todoItems');
+            if (storedItems) {
+                let todoItems = JSON.parse(storedItems);
+                todoItems.forEach(function (text) {
+                    let li = document.createElement('li');
+                    li.textContent = text;
+                    addEditAndDeleteButtons(li); 
+                    todoList.appendChild(li);
+                });
+            }
+        }
+
+        // Load to-do items from local storage when the page loads
+        loadFromLocalStorage();
+    </script>
+</body>
+</html>
